@@ -3,6 +3,10 @@
 version: 2.1
 
 commands:
+  generate-cv:
+    steps:
+      - run: pdflatex main.tex
+      
   machine-prereqs:
     steps:
       - run: 
@@ -15,7 +19,9 @@ jobs:
     docker:
       - image: pandoc/latex:latest
     steps:
+      - checkout
       - run: pdflatex --version
+      - generate-cv
       
   say-hello:
     machine:
@@ -27,6 +33,7 @@ jobs:
           name: check pdflatex version
           command: |
              pdflatex --version
+      - generate-cv
 
 
 workflows:
