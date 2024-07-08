@@ -20,6 +20,7 @@ jobs:
       - image: pandoc/latex:latest
     steps:
       - checkout
+      - run: apt install texlive-latex-extra
       - run: pdflatex --version
       - generate-cv
       
