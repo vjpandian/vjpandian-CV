@@ -14,14 +14,14 @@ commands:
           command: |
              sudo apt update
              sudo tlmgr install preprint
-             sudo apt install texlive-latex-base
+             sudo apt-get install texlive-latex-base
 jobs:
   docker-pdf:
     docker:
       - image: pandoc/latex:3.1.1-ubuntu
     steps:
       - checkout
-      - run: apt install texlive-latex-extra
+      - run: apt-get install texlive-latex-extra
       - run: tlmgr install preprint
       - run: pdflatex --version
       - generate-cv
