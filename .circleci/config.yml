@@ -28,6 +28,7 @@ jobs:
   generate-cv:
     machine:
       image: ubuntu-2404:current
+    resource_class: medium
     steps:
       - checkout
       - machine-prereqs
