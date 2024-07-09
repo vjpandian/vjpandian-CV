@@ -33,7 +33,7 @@ jobs:
       - run: pdflatex --version
       - generate-cv
       
-  say-hello:
+  generate-cv:
     machine:
       image: ubuntu-2404:current
     steps:
@@ -47,6 +47,6 @@ jobs:
 
 
 workflows:
-  say-hello-workflow: 
+  generate-cv-workflow: 
     jobs:
-      - say-hello
+      - generate-cv
