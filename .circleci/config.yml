@@ -13,6 +13,13 @@ commands:
           name: install pdflatex
           command: |
              sudo apt update
+             wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+             tar -xzf install-tl-unx.tar.gz
+             cd install-tl-*
+             sudo ./install-tl
+             export PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH
+             source ~/.bashrc
+             tlmgr --version
              sudo tlmgr install preprint
              sudo apt-get install texlive-latex-base
 jobs:
@@ -43,4 +50,3 @@ workflows:
   say-hello-workflow: 
     jobs:
       - say-hello
-      - docker-pdf
